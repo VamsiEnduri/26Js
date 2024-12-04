@@ -119,7 +119,6 @@
 // }
 
 
-
 // if(10 && 10){  // if(true)
 //     alert("hello there good morning")
 // }else{
@@ -147,7 +146,6 @@
 // }else{
 //     alert("hello there see you tmrw !!!!")
 // }
-
 
 
 // if(["vamsi"] && " "){  
@@ -185,3 +183,4 @@
 // }else{
 //     alert("hello there see you tmrw !!!!")
 // }
+
