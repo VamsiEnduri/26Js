@@ -638,9 +638,4 @@ function getRating(){
 // console.log(r);
 // console.log(d)
 
-
-
-
-
-
 // console.log(data.length)
