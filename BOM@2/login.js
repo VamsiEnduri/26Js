@@ -8,14 +8,14 @@ login.addEventListener("submit", (k) => {
 let credentails=JSON.parse(localStorage.getItem("user"));
 let eS=credentails.email
 let pS=credentails.password;
-let loggedIn=false;
+// let loggedIn=false;
 
 
 if( e === eS && p ===pS){
-localStorage.setItem("isLoggedIn",!loggedIn)
+localStorage.setItem("isLoggedIn",true)
+let isLoggedIn=localStorage.getItem("isLoggedIn")
 
-
-    if(loggedIn){
+    if(isLoggedIn){
         alert("successfully loggedin")
     location.href="./home.html"
     }else{
