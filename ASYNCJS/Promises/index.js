@@ -118,14 +118,19 @@
 // // )
 
 // const step1=new Promise((resolve,reject)=>{
-//     if(0){
-//         setTimeout(()=>{
-//             resolve("successful")
-//         },2000)
-//     }else{
-//         setTimeout(()=>{
-//             reject("failed")
-//         })
+//     try{
+//         if(1){
+//             setTimeout(()=>{
+//                 resolve("successful")
+//             },2000)
+//         }else{
+//             setTimeout(()=>{
+//                 reject("failed 1")
+//             })
+//         }
+//     }catch(err){
+//         console.log(err);
+        
 //     }
 // })
 
@@ -133,7 +138,8 @@
 
 
 // const step2=new Promise((resolve,reject)=>{
-//     if(1){
+//    try{
+//     if(0){
 //         setTimeout(()=>{
 //             resolve("successful 2")
 //         },2000)
@@ -142,17 +148,27 @@
 //             reject("failed 2")
 //         })
 //     }
+//    }catch(err){
+//     console.log(err);
+    
+//    }
 // })
 
 
-// // step1.then(output1=>{
-// //     console.log(output1)
-// //     step2.then(output2=>console.log(output2)
-// //     ).catch(err=>console.log(err)
-// //     )
-// // }
-// // ).catch(err=>console.log(err)
-// // )
+// step1.then(step2).catch(err=>{
+//     console.log(err);
+    
+// })
+// step1.then(output1=>{
+//     console.log(output1)
+//     return step2
+// }
+// ).then(res=>{
+//     console.log(res);
+// })
+
+// .catch(err=>console.log(err)
+// )
 
 // // promise chaining
 
@@ -170,18 +186,74 @@
 
 
 
-const step2=new Promise((reject,ramCharan)=>{
-    if(1){
+// const step2=new Promise((reject,ramCharan)=>{
+//     try{
+//         if(1){
+//             setTimeout(()=>{
+//                 reject("successful 2")
+//             },2000)
+//         }else{
+//             setTimeout(()=>{
+//                 ramCharan("failed 2")
+//             })
+//         }
+//     }catch(err){
+//         crossOriginIsolated.log(err)
+//     }
+// })
+// // console.log(step2);
+// step2.then(res=>console.log(res)
+// ).catch(err=>console.log(err)
+// )
+
+
+
+const step1=new Promise((resolve, reject)=>{
+        try{
+            if(1){
+                setTimeout(()=>{
+                resolve("yedo okati rayandi")
+                },2000)
+                 }else{
+                    setTimeout(()=>{
+                           reject("failed at step 1")
+                    },2000)
+                 }
+        }catch(err){
+                          reject(`error at step1 ${err.message}`);
+                          
+        }
+});
+
+
+const step2=new Promise((resolve, reject)=>{
+   try{
+    if(0){
         setTimeout(()=>{
-            reject("successful 2")
+        resolve("yedo okati rayandi 2")
         },2000)
-    }else{
-        setTimeout(()=>{
-            ramCharan("failed 2")
-        })
-    }
+         }else{
+            setTimeout(()=>{
+                   reject("failed at step 2")
+            },2000)
+         }
+   }
+   catch(err){
+    reject(`error at step2 ${err.message}`);
+   }
+});
+
+
+
+step1.then(res=>{
+    console.log(res)
+return step2;
+}
+).then(res=>{
+    console.log(res)
+    return step2;
+    // return step3
 })
-// console.log(step2);
-step2.then(res=>console.log(res)
-).catch(err=>console.log(err)
-)
+.catch(err=>{
+    console.log(err);
+})

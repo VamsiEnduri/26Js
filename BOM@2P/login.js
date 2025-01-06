@@ -17,15 +17,15 @@ form.addEventListener("submit",(e)=>{
      const dataFromStorage=JSON.parse(localStorage.getItem("allUsers"))
      console.log(dataFromStorage);
      
-     
-    const userFound=dataFromStorage && dataFromStorage?.find(x=>{
-        x.email === userdetailsLogin.emailL && x.password===userdetailsLogin.passwordL
+    const userFound=dataFromStorage.filter(x=>{
+     return   x.email === userdetailsLogin.emailL && x.password===userdetailsLogin.passwordL
     })
 
     console.log(userFound);
     
     if(userFound){
         alert("login succesful")
+        localStorage.setItem("user",JSON.stringify(userFound))
         location.href="./home.html"
     }else{
         alert("no user found in storage");
