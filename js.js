@@ -16,16 +16,29 @@
 // console.log(c);
 // console.log(d)
 // console.log(a+b+c+d);
-
-
-
-const createCounter = (initialValue = 0) => {
-    let counter = initialValue
-    return (incrementalValue) => {
-    counter += incrementalValue
-    console.log(counter)
+var a=20
+var b=30
+function parent(){
+    console.log(a+b)
+    var c=10
+    var b=25
+    function child(){
+        console.log(b-c)
     }
-   }
-   let counter = createCounter(20);
-   counter(10);
-   counter(30)
+    child()
+} 
+// parent() 
+console.log(undefined+20);
+
+
+
+// const createCounter = (initialValue = 0) => {
+//     let counter = initialValue
+//     return (incrementalValue) => {
+//     counter += incrementalValue
+//     console.log(counter)
+//     }
+//    }
+//    let counter = createCounter(20);
+//    counter(10);
+//    counter(30)
