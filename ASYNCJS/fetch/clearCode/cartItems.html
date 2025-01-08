@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="clearCode.css">
+</head>
+<body>
+    cartItems
+    <div id="container"></div>
+    <script>
+        let allData=document.getElementById("container")
+        document.addEventListener("DOMContentLoaded",()=>{
+            let allItems=JSON.parse(localStorage.getItem("cartItems"))
+            console.log(allItems);
+            allItems.forEach((x)=>{
+                let card = document.createElement("div");
+      card.className = "card";
+
+      card.innerHTML = `
+             <img src=${x.image} alt="image" width="300" class="img"/>
+             <p>${x.title}</p>
+             <span>${x.price}</span>
+             <button id="remove">Remove</button>
+             <button id="buyNow">BUyNow</button>
+             `;
+      allData.append(card);
+      card.querySelector("#remove").addEventListener("click",()=>{
+          allData.removeChild(card)
+      })
+            })
+            
+        })
+    </script>
+</body>
+</html>

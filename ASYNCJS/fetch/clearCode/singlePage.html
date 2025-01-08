@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    single product page
+
+    <script>
+      let singleP = JSON.parse(localStorage.getItem("singleP"));
+      let card = document.createElement("div");
+      card.innerHTML = `
+
+ <img src=${singleP.image} alt="image" width="300" class="img"/>
+             <p>${singleP.title}</p>
+             <span>${singleP.price}</span>
+             <button id="addCart">addToCart</button>
+             <button id="buyNow">BUyNow</button>
+
+`;
+      document.body.append(card);
+    </script>
+  </body>
+</html>
