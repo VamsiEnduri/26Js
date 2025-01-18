@@ -1,0 +1,30 @@
+{
+  "mobiles": [
+    {
+      "id": "667f",
+      "name": "apple 16 pro max",
+      "price": 185000
+    },
+    {
+      "id": "46a3",
+      "name": "samsung galaxy",
+      "price": 120000
+    },
+    {
+      "id": "5996",
+      "name": "vivo",
+      "price": 16000
+    },
+    {
+      "0": {
+        "name": "iq",
+        "price": 16000
+      },
+      "1": {
+        "name": "mi",
+        "price": 26000
+      },
+      "id": "cadb"
+    }
+  ]
+}

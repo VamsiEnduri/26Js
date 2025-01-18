@@ -22,6 +22,7 @@ const url = "https://fakestoreapi.com/products";
 
 // }
 // getData()
+// Swal.fire('Good job!', 'You clicked the button!', 'success');
 
 let allData = document.getElementById("data");
 
@@ -68,14 +69,47 @@ async function getData(category = null) {
       });
       card.querySelector("#addCart").addEventListener("click", (e) => {
         e.stopPropagation();
-        alert("item added to cart");
+        // alert("item added to cart");
+// Swal.fire('Good job!', 'item added to the cart!', 'success');
+Swal.fire({
+  title: "This item added to cart",
+  text: "you can see item in cart page",
+  imageUrl: `${x.image}`,
+  imageWidth: 400,
+  imageHeight: 200,
+  imageAlt: ""
+});
+
         let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
         cartItems.push(x);
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
       });
       card.querySelector("#buyNow").addEventListener("click", (e) => {
         e.stopPropagation();
-        location.href="./clearCode/cartItems.html"
+        let timerInterval;
+Swal.fire({
+  title: "Redirecting to cart page",
+  html: "I will navigate in <b></b> milliseconds.",
+  timer: 1000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading();
+    const timer = Swal.getPopup().querySelector("b");
+    timerInterval = setInterval(() => {
+      timer.textContent = `${Swal.getTimerLeft()}`;
+    }, 100);
+  },
+  willClose: () => {
+    clearInterval(timerInterval);
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log("I was closed by the timer");
+      location.href="./clearCode/cartItems.html"
+  }
+});
+      
       });
     });
   }

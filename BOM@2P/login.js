@@ -17,7 +17,7 @@ form.addEventListener("submit",(e)=>{
      const dataFromStorage=JSON.parse(localStorage.getItem("allUsers"))
      console.log(dataFromStorage);
      
-    const userFound=dataFromStorage.filter(x=>{
+    const userFound=dataFromStorage.find(x=>{
      return   x.email === userdetailsLogin.emailL && x.password===userdetailsLogin.passwordL
     })
 
